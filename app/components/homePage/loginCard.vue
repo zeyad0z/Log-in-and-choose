@@ -34,9 +34,10 @@
 
           <button
             type="submit"
-            class="w-full bg-[#1d58d6] text-white py-4 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm font-semibold"
+            :disabled="loading"
+            class="w-full bg-[#1d58d6] text-white py-4 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
           >
-            Sign In
+            {{ loading ? "Signing In..." : "Sign In" }}
           </button>
         </form>
       </div>
@@ -45,13 +46,20 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { useUserStore } from "~/stores/UserStore";
 
 const UserStore = useUserStore();
+const loading = ref(false);
 
 const logIn = () => {
   if (UserStore.user.id && UserStore.user.pass) {
-    navigateTo("/options");
+    loading.value = true;
+    // simulate delay or do async login
+    setTimeout(() => {
+      navigateTo("/options");
+      loading.value = false;
+    }, 1000);
   }
 };
 </script>
