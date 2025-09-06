@@ -1,11 +1,9 @@
 <template>
   <div class="flex h-screen w-full">
-    <!-- Left Side -->
     <div class="flex-1 flex justify-center items-center bg-gray-50">
       <div
         class="w-[28rem] shadow-black/25 shadow-2xl p-8 mt-20 rounded-lg bg-white"
       >
-        <!-- Success Icon -->
         <div class="flex justify-center mb-5">
           <div
             class="bg-green-100 p-4 rounded-full flex items-center justify-center"
@@ -14,7 +12,6 @@
           </div>
         </div>
 
-        <!-- Welcome -->
         <h2 class="text-2xl font-bold text-center mb-1 text-black">
           Welcome Back!
         </h2>
@@ -22,7 +19,6 @@
           Ready to continue learning
         </p>
 
-        <!-- ID -->
         <div
           class="flex items-center gap-3 bg-gray-100 rounded-md p-4 mb-6 text-gray-600"
         >
@@ -35,7 +31,6 @@
             />
           </div>
 
-          <!-- ID Text -->
           <div class="flex flex-col">
             <span class="text-lg font-semibold text-gray-800">
               {{ UserStore.user?.id }}
@@ -46,11 +41,9 @@
           </div>
         </div>
 
-        <!-- Position + Branch in same box -->
         <div
           class="bg-gray-100 rounded-md px-3 py-3 mb-6 text-gray-600 space-y-2"
         >
-          <!-- Role -->
           <div class="flex items-center">
             <UIcon
               name="i-heroicons-book-open"
@@ -64,7 +57,6 @@
             </div>
           </div>
 
-          <!-- Branch -->
           <div class="flex items-center">
             <UIcon
               name="i-heroicons-building-office"
@@ -79,7 +71,6 @@
           </div>
         </div>
 
-        <!-- Button -->
         <button
           :disabled="!UserStore.user.role || !UserStore.user.branch"
           @click="goDashboard"
@@ -96,7 +87,6 @@
       </div>
     </div>
 
-    <!-- Right Side -->
     <div class="flex-1">
       <HomePageSideSection />
     </div>

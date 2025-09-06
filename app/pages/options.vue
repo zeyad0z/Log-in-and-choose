@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col items-center bg-[#F3F8FE] w-full min-h-screen">
-    <!-- Header -->
     <div class="w-full flex justify-between p-5 mb-6">
       <button
         @click="backToLogin"
@@ -24,8 +23,7 @@
       </div>
     </div>
 
-    <!-- Choose Role -->
-    <div class="flex flex-col items-center text-center p-2 mb-10">
+    <div class="flex flex-col items-center text-center p-2 mt-2 mb-10">
       <div
         class="w-[5rem] h-[5rem] flex bg-[#DBEAFE] rounded-full items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
       >
@@ -40,32 +38,29 @@
       </p>
     </div>
 
-    <!-- Roles -->
-    <div class="flex gap-5 justify-center mb-7">
+    <div class="flex gap-5 justify-center mb-2">
       <div v-for="role in roles" :key="role.name">
         <button
           @click="selectRole(role.name)"
           :class="[
-            'flex flex-col items-center gap-2 bg-[#F8FAFC] border rounded-2xl p-5 w-[18rem] h-[16rem] shadow-sm hover:shadow-md transition-all duration-100 relative',
+            'flex flex-col items-center gap-2 bg-[#F8FAFC] border rounded-2xl p-5 w-[18rem] shadow-sm hover:shadow-md relative',
             selectedRole === role.name
               ? 'border-blue-500 bg-blue-50 border-2'
               : 'border-gray-200',
+            selectedRole ? 'h-[16rem]' : 'h-[14rem]',
           ]"
         >
-          <!-- Icon -->
           <div
             class="bg-[#DBEAFE] rounded-full w-[4rem] h-[4rem] flex items-center justify-center mb-3"
           >
             <UIcon :name="role.icon" class="w-[2rem] h-[2rem] text-[#155DFC]" />
           </div>
 
-          <!-- Role Info -->
           <p class="text-xl font-semibold text-[#1D293D]">{{ role.name }}</p>
           <p class="text-base text-gray-600">
             {{ role.branches }} branches available
           </p>
 
-          <!-- ✅ Correct Icon يظهر لو مختار -->
           <div v-if="selectedRole === role.name" class="absolute bottom-4">
             <UIcon
               name="i-heroicons-check-circle"
@@ -76,10 +71,9 @@
       </div>
     </div>
 
-    <!-- Select Branch -->
     <div
       v-if="selectedRole"
-      class="bg-[#FFFFFF] border border-gray-200 rounded-2xl p-5 flex flex-col items-center w-[57rem] h-[14rem] shadow-md shadow-black/20"
+      class="bg-[#FFFFFF] border border-gray-200 rounded-2xl mt-5 p-5 flex flex-col items-center w-[57rem] h-[14rem] shadow-md shadow-black/20"
     >
       <h1 class="text-2xl font-semibold text-[#1D293D] mb-6 mt-3">
         Select Your Branch
@@ -95,7 +89,6 @@
                 : 'bg-white border-gray-300',
             ]"
           >
-            <!-- Left side (icon + info) -->
             <div class="flex items-center gap-3">
               <div
                 class="bg-[#EFF6FF] rounded-lg w-[3rem] h-[3rem] flex items-center justify-center"
@@ -113,7 +106,6 @@
               </div>
             </div>
 
-            <!-- ✅ Correct Icon يظهر فقط للفرع المختار -->
             <div v-if="selectedBranch === branch.name">
               <UIcon
                 name="i-heroicons-check-circle"
@@ -125,7 +117,6 @@
       </div>
     </div>
 
-    <!-- Continue Button -->
     <button
       :disabled="!selectedRole || !selectedBranch"
       :class="[
@@ -184,7 +175,7 @@ const backToLogin = () => navigateTo("/");
 
 function selectRole(role) {
   selectedRole.value = role;
-  selectedBranch.value = null; // reset branch لما يتغير الـ role
+  selectedBranch.value = null;
 }
 
 function selectBranch(branch) {

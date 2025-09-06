@@ -11,7 +11,7 @@
       </div>
 
       <div>
-        <form action="" class="mt-6">
+        <form @submit.prevent="logIn" class="mt-6">
           <label for="id" class="text-sm font-medium">Staff/Student ID</label>
           <input
             type="text"
@@ -21,6 +21,7 @@
             required
             class="w-full px-4 py-3 mb-4 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-3 focus:ring-[#8FAEF3]"
           />
+
           <label for="pass" class="text-sm font-medium">Password</label>
           <input
             type="password"
@@ -28,18 +29,16 @@
             placeholder="Enter your Password"
             v-model="UserStore.user.pass"
             required
-            class="w-full px-4 py-3 mb-2 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-3 focus:ring-[#8FAEF3]"
+            class="w-full px-4 py-3 mb-6 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-3 focus:ring-[#8FAEF3]"
           />
-        </form>
-      </div>
 
-      <div class="mt-4">
-        <button
-          @click="logIn"
-          class="w-full bg-[#1d58d6] text-white py-4 mb-6 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm font-semibold"
-        >
-          Sign In
-        </button>
+          <button
+            type="submit"
+            class="w-full bg-[#1d58d6] text-white py-4 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm font-semibold"
+          >
+            Sign In
+          </button>
+        </form>
       </div>
     </div>
   </div>
