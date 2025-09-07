@@ -43,7 +43,7 @@
         <button
           @click="selectRole(role.name)"
           :class="[
-            'flex flex-col items-center gap-2 bg-[#F8FAFC] border rounded-2xl p-5 w-[18rem] shadow-sm hover:shadow-md relative',
+            'flex flex-col items-center gap-2 bg-[#F8FAFC] border rounded-2xl p-5 w-[18rem] shadow-sm hover:shadow-md relative cursor-pointer',
             selectedRole === role.name
               ? 'border-blue-500 bg-blue-50 border-2'
               : 'border-gray-200',
@@ -83,7 +83,7 @@
           <button
             @click="selectBranch(branch.name)"
             :class="[
-              'flex items-center justify-between gap-2 border rounded-lg px-6 py-6 w-[17rem] h-fit relative',
+              'flex items-center justify-between gap-2 border rounded-lg px-6 py-6 w-[17rem] h-fit relative cursor-pointer hover:border-2 hover:border-blue-300 ',
               selectedBranch === branch.name
                 ? 'bg-blue-50 border-blue-500 border-2'
                 : 'bg-white border-gray-300',
