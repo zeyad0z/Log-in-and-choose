@@ -1,46 +1,48 @@
 <template>
-  <div class="h-screen w-full flex justify-center items-center">
+  <div
+    class="min-h-fit w-full flex justify-center items-center px-4 sm:px-6 lg:px-8"
+  >
     <div
-      class="max-w-[28rem] shadow-black/25 shadow-2xl p-8 rounded-lg mt-20 bg-gray-50"
+      class="w-full max-w-md sm:max-w-lg lg:max-w-[28rem] shadow-black/25 shadow-2xl p-6 sm:p-8 rounded-lg mt-10 sm:mt-16 lg:mt-0 bg-gray-50"
     >
-      <div class="mb-15">
-        <h1 class="text-3xl font-bold text-center mb-4">Welcome to Learning</h1>
-        <p class="text-gray-500 text-center">
+      <div class="mb-8 sm:mb-12 text-center">
+        <h1 class="text-2xl sm:text-3xl lg:text-3xl font-bold mb-3">
+          Welcome to Learning
+        </h1>
+        <p class="text-gray-500 text-sm sm:text-base">
           Access your educational dashboard
         </p>
       </div>
 
-      <div>
-        <form @submit.prevent="logIn" class="mt-6">
-          <label for="id" class="text-sm font-medium">Staff/Student ID</label>
-          <input
-            type="text"
-            name="id"
-            placeholder="Enter your ID"
-            v-model="UserStore.user.id"
-            required
-            class="w-full px-4 py-3 mb-4 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-3 focus:ring-[#8FAEF3]"
-          />
+      <form @submit.prevent="logIn" class="mt-4 sm:mt-6">
+        <label for="id" class="text-sm font-medium">Staff/Student ID</label>
+        <input
+          type="text"
+          name="id"
+          placeholder="Enter your ID"
+          v-model="UserStore.user.id"
+          required
+          class="w-full px-3 sm:px-4 py-2 sm:py-3 mb-4 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
+        />
 
-          <label for="pass" class="text-sm font-medium">Password</label>
-          <input
-            type="password"
-            name="pass"
-            placeholder="Enter your Password"
-            v-model="UserStore.user.pass"
-            required
-            class="w-full px-4 py-3 mb-6 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-3 focus:ring-[#8FAEF3]"
-          />
+        <label for="pass" class="text-sm font-medium">Password</label>
+        <input
+          type="password"
+          name="pass"
+          placeholder="Enter your Password"
+          v-model="UserStore.user.pass"
+          required
+          class="w-full px-3 sm:px-4 py-2 sm:py-3 mb-5 sm:mb-6 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
+        />
 
-          <button
-            type="submit"
-            :disabled="loading"
-            class="w-full bg-[#1d58d6] text-white py-4 mb-5 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
-          >
-            {{ loading ? "Signing In..." : "Sign In" }}
-          </button>
-        </form>
-      </div>
+        <button
+          type="submit"
+          :disabled="loading"
+          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 rounded-lg mb-6 hover:bg-[#386ad7] transition duration-300 text-sm sm:text-base font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
+        >
+          {{ loading ? "Signing In..." : "Sign In" }}
+        </button>
+      </form>
     </div>
   </div>
 </template>
@@ -55,11 +57,10 @@ const loading = ref(false);
 const logIn = () => {
   if (UserStore.user.id && UserStore.user.pass) {
     loading.value = true;
-    // simulate delay or do async login
     setTimeout(() => {
       navigateTo("/options");
       loading.value = false;
-    }, 1000);
+    }, 500);
   }
 };
 </script>

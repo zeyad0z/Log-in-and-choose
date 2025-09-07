@@ -2,7 +2,7 @@
   <div class="flex h-screen w-full">
     <div class="flex-1 flex justify-center items-center bg-gray-50">
       <div
-        class="w-[28rem] shadow-black/25 shadow-2xl p-8 mt-20 rounded-lg bg-white"
+        class="w-[28rem] shadow-black/25 shadow-2xl p-8 rounded-lg bg-[#F8FAFC]"
       >
         <div class="flex justify-center mb-5">
           <div
@@ -87,7 +87,7 @@
       </div>
     </div>
 
-    <div class="flex-1">
+    <div class="flex-1 hidden lg:block">
       <HomePageSideSection />
     </div>
   </div>

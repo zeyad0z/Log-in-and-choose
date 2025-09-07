@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-fit w-full bg-gradient-to-tl from-[#15a4f2] via-[#2d78f9] to-[#2B67EB] relative"
+    class="h-full w-full bg-gradient-to-tl from-[#15a4f2] via-[#2d78f9] to-[#2B67EB] relative"
   >
     <div
       class="absolute inset-0 opacity-20 pointer-events-none"
@@ -20,44 +20,56 @@
       "
     ></div>
 
-    <div class="relative z-10 p-6">
-      <div class="text-center mb-12">
-        <div class="flex justify-center mb-5 mt-7">
+    <div class="relative z-10 px-4 sm:px-6 lg:px-20 py-8 sm:py-10">
+      <div class="text-center mb-10 sm:mb-12">
+        <div class="flex justify-center mb-5 mt-5 sm:mt-2 xl:mt-16">
           <div
-            class="w-[6rem] h-[6rem] bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center"
+            class="w-20 h-20 sm:w-24 sm:h-24 lg:w-[6rem] lg:h-[6rem] bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center"
           >
             <UIcon
               name="i-heroicons-building-office"
-              class="w-[4rem] h-[4rem] text-white"
+              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-[4rem] lg:h-[4rem] text-white"
             />
           </div>
         </div>
 
-        <h1 class="text-4xl font-bold text-white mb-3">Your School Name</h1>
-        <h2 class="text-xl font-semibold text-blue-100 mb-2">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+          Your School Name
+        </h1>
+        <h2
+          class="text-lg sm:text-xl lg:text-[1.3rem] font-semibold text-blue-100 mb-2"
+        >
           Excellence in Education
         </h2>
-        <p class="text-lg text-blue-100/90 max-w-lg mx-auto font-medium">
+        <p
+          class="text-sm sm:text-base lg:text-lg text-blue-100/90 max-w-md sm:max-w-lg lg:max-w-lg mx-auto font-medium"
+        >
           Empowering minds and shaping futures through innovative learning
           experiences
         </p>
       </div>
 
-      <div class="grid grid-cols-2 gap-7 max-w-[40rem] mx-auto mb-6">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:gap-6 gap-7 max-w-lg sm:max-w-2xl lg:max-w-[40rem] mx-auto mb-6"
+      >
         <UCard
           v-for="card in cards"
           :key="card.title"
           class="bg-white/10 hover:bg-white/15 backdrop-blur-md transition-all duration-300 group"
         >
           <template #header>
-            <div class="flex flex-col items-center text-center p-2">
-              <div class="w-11 h-11 flex items-center justify-center mb-3">
-                <UIcon :name="card.icon" class="w-[3rem] h-[3rem] text-white" />
+            <div class="flex flex-col items-center text-center py-2">
+              <div
+                class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-3"
+              >
+                <UIcon :name="card.icon" class="w-12 h-12 text-white" />
               </div>
-              <h3 class="text-lg font-semibold text-white mb-2">
+              <h3
+                class="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2"
+              >
                 {{ card.title }}
               </h3>
-              <p class="text-blue-100/80 text-sm font-semibold">
+              <p class="text-blue-100/80 text-xs sm:text-sm font-medium">
                 {{ card.text }}
               </p>
             </div>

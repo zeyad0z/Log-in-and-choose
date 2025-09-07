@@ -4,8 +4,13 @@ import SideSection from "~/components/homePage/sideSection.vue";
 </script>
 
 <template>
-  <div class="flex">
-    <LoginCard />
-    <SideSection />
+  <div class="flex flex-col lg:flex-row min-h-screen">
+    <div class="flex-1 flex justify-center items-center p-4 sm:p-6 lg:p-10">
+      <LoginCard />
+    </div>
+
+    <div class="flex-1 hidden lg:block">
+      <SideSection />
+    </div>
   </div>
 </template>

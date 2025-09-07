@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center bg-[#F3F8FE] w-full min-h-screen">
-    <div class="w-full flex justify-between p-5 mb-10">
+    <div class="w-full flex justify-between flex-row p-5 mb-10 gap-3">
       <button
         @click="backToLogin"
         class="flex items-center gap-2 hover:bg-[#0EA5E9] px-3 py-2 rounded-md"
@@ -23,27 +23,31 @@
       </div>
     </div>
 
-    <div class="flex flex-col items-center text-center p-2 mt-2 mb-9">
+    <div class="flex flex-col items-center text-center p-2 md:mt-30 mb-9">
       <div
         class="w-[5rem] h-[5rem] flex bg-[#DBEAFE] rounded-full items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
       >
         <UIcon
           name="i-heroicons-book-open"
-          class="w-[3rem] h-[3rem] text-[#155DFC]"
+          class="w-[2.8rem] h-[2.8rem] text-[#155DFC]"
         />
       </div>
-      <h1 class="text-4xl font-bold text-[#1D293D] mb-5">Choose Your Role</h1>
-      <p class="text-gray text-xl">
+      <h1 class="text-4xl sm:text-4xl font-bold text-[#1D293D] mb-5">
+        Choose Your Role
+      </h1>
+      <p class="text-gray text-xl max-w-sm md:max-w-2xl">
         Select your position and branch to access your personalized dashboard
       </p>
     </div>
 
-    <div class="flex gap-5 justify-center mb-2">
+    <div
+      class="flex flex-col sm:flex-row flex-wrap gap-6 justify-center my-2 px-3"
+    >
       <div v-for="role in roles" :key="role.name">
         <button
           @click="selectRole(role.name)"
           :class="[
-            'flex flex-col items-center gap-2 bg-[#F8FAFC] border rounded-2xl p-5 w-[18rem] shadow-sm hover:shadow-md relative cursor-pointer',
+            'flex flex-col items-center gap-2 bg-[#F8FAFC] border rounded-2xl px-36 md:px-5 py-5  w-full sm:w-[18rem] shadow-sm hover:shadow-md relative cursor-pointer',
             selectedRole === role.name
               ? 'border-blue-500 bg-blue-50 border-2'
               : 'border-gray-200',
@@ -56,37 +60,46 @@
             <UIcon :name="role.icon" class="w-[2rem] h-[2rem] text-[#155DFC]" />
           </div>
 
-          <p class="text-xl font-semibold text-[#1D293D]">{{ role.name }}</p>
-          <p class="text-base text-gray-600">
+          <p class="text-xl sm:text-xl font-semibold text-[#1D293D]">
+            {{ role.name }}
+          </p>
+          <p class="text-sm sm:text-base text-gray-600">
             {{ role.branches }} branches available
           </p>
 
           <div v-if="selectedRole === role.name" class="absolute bottom-4">
             <UIcon
               name="i-heroicons-check-circle"
-              class="w-8 h-8 text-blue-600"
+              class="w-7 h-7 text-blue-600"
             />
           </div>
         </button>
       </div>
     </div>
 
+    <!-- Branches -->
     <div
       v-if="selectedRole"
-      class="bg-[#FFFFFF] border border-gray-200 rounded-2xl mt-5 p-5 flex flex-col items-center w-[57rem] h-[14rem] shadow-md shadow-black/20"
+      class="bg-[#FFFFFF] border border-gray-200 rounded-2xl mt-5 px-5 py-7 flex flex-col items-center w-[89%] sm:w-[90%] lg:w-[57rem] shadow-md shadow-black/20"
     >
       <h1 class="text-2xl font-semibold text-[#1D293D] mb-6 mt-3">
         Select Your Branch
       </h1>
-      <div class="flex items-start min-w-[53rem] gap-5 justify-start">
-        <div v-for="branch in filteredBranches" :key="branch.name">
+      <div
+        class="flex flex-col sm:flex-row flex-wrap gap-5 justify-center w-[94%] md:w-[100%]"
+      >
+        <div
+          v-for="branch in filteredBranches"
+          :key="branch.name"
+          class="w-full sm:w-auto"
+        >
           <button
             @click="selectBranch(branch.name)"
             :class="[
-              'flex items-center justify-between gap-2 border rounded-lg px-6 py-6 w-[17rem] h-fit relative cursor-pointer hover:border-2 hover:border-blue-300 ',
+              'flex items-center justify-between gap-2 border-2 rounded-lg px-6 py-6 w-full sm:w-[17rem] h-fit relative cursor-pointer hover:border-2 hover:border-blue-300',
               selectedBranch === branch.name
                 ? 'bg-blue-50 border-blue-500 border-2'
-                : 'bg-white border-gray-300',
+                : 'bg-white border-gray-200',
             ]"
           >
             <div class="flex items-center gap-3">
@@ -120,7 +133,7 @@
     <button
       :disabled="!selectedRole || !selectedBranch"
       :class="[
-        'flex items-center gap-2 px-13 py-2 rounded-xl mt-7 mb-8 text-lg font-semibold transition-all duration-200',
+        'flex items-center gap-2 px-10 py-2 rounded-xl mt-7 mb-8 text-xl font-semibold transition-all duration-200',
         !selectedRole || !selectedBranch
           ? 'bg-[#83AAFD] text-white cursor-not-allowed'
           : 'bg-[#2460e2] hover:bg-[#1447E6] text-white',
