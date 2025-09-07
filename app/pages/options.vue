@@ -94,7 +94,7 @@
                 class="bg-[#EFF6FF] rounded-lg w-[3rem] h-[3rem] flex items-center justify-center"
               >
                 <UIcon
-                  name="i-heroicons-academic-cap"
+                  name="i-heroicons-building-office"
                   class="w-[2rem] h-[2rem] text-[#45556C]"
                 />
               </div>
