@@ -4,4 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxt/ui", "@pinia/nuxt"],
   css: ["@/assets/css/main.css"],
+  app: {
+    baseURL: "/Log-in-and-choose/",
+  },
+  nitro: {
+    preset: "github-pages",
+  },
 });

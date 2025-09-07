@@ -5,6 +5,5 @@ import Options from "./pages/options.vue";
 <template>
   <div>
     <NuxtPage />
-    <!-- <Options /> -->
   </div>
 </template>

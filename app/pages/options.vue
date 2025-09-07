@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center bg-[#F3F8FE] w-full min-h-screen">
-    <div class="w-full flex justify-between p-5 mb-6">
+    <div class="w-full flex justify-between p-5 mb-10">
       <button
         @click="backToLogin"
         class="flex items-center gap-2 hover:bg-[#0EA5E9] px-3 py-2 rounded-md"
@@ -14,16 +14,16 @@
         </div>
       </button>
       <div class="flex flex-col items-end">
-        <p class="text-sm font-medium text-gray-600">
+        <p class="text-sm font-base text-gray-700">
           Welcome, {{ UserStore.user.id }}
         </p>
-        <p class="text-sm font-medium text-gray-500">
+        <p class="text-xs font-base text-gray-500">
           ID: {{ UserStore.user.id }}
         </p>
       </div>
     </div>
 
-    <div class="flex flex-col items-center text-center p-2 mt-2 mb-10">
+    <div class="flex flex-col items-center text-center p-2 mt-2 mb-9">
       <div
         class="w-[5rem] h-[5rem] flex bg-[#DBEAFE] rounded-full items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
       >

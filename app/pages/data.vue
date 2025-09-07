@@ -49,7 +49,7 @@
               name="i-heroicons-book-open"
               class="w-4 h-4 mr-2 text-gray-500"
             />
-            <span class="text-gray-500">Role:</span>
+            <span class="text-gray-500">Position:</span>
             <div
               class="ml-2 text-[#2563EB] text-xs font-semibold bg-[#DCE6F7] rounded-lg px-2 py-1"
             >
