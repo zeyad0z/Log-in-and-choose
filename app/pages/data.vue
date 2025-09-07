@@ -100,7 +100,7 @@ const UserStore = useUserStore();
 
 const goDashboard = () => {
   if (UserStore.user.role && UserStore.user.branch) {
-    navigateTo("/dashboard");
+    navigateTo("/");
   }
 };
 </script>
