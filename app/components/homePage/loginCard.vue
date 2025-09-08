@@ -2,9 +2,7 @@
   <div
     class="min-h-fit w-full flex justify-center items-center px-4 sm:px-6 lg:px-8"
   >
-    <div
-      class="w-full max-w-md sm:max-w-lg lg:max-w-[29rem] shadow-black/25 shadow-2xl p-6 sm:p-8 rounded-lg mt-10 sm:mt-16 lg:mt-0 bg-gray-50"
-    >
+    <BaseCard>
       <div class="mb-8 sm:mb-12 text-center">
         <h1 class="text-2xl sm:text-3xl lg:text-3xl font-bold mb-3">
           Welcome to Learning
@@ -43,11 +41,12 @@
           {{ loading ? "Signing In..." : "Sign In" }}
         </button>
       </form>
-    </div>
+    </BaseCard>
   </div>
 </template>
 
 <script setup>
+import BaseCard from "../UI/BaseCard.vue";
 import { ref } from "vue";
 import { useUserStore } from "~/stores/UserStore";
 
@@ -55,12 +54,10 @@ const UserStore = useUserStore();
 const loading = ref(false);
 
 const logIn = () => {
-  if (UserStore.user.id && UserStore.user.pass) {
-    loading.value = true;
-    setTimeout(() => {
-      navigateTo("/options");
-      loading.value = false;
-    }, 500);
-  }
+  loading.value = true;
+  setTimeout(() => {
+    navigateTo("/options");
+    loading.value = false;
+  }, 1000);
 };
 </script>

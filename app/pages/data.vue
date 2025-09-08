@@ -1,14 +1,12 @@
 <template>
   <div class="flex w-full min-h-screen">
     <div class="flex-1 flex justify-center items-center bg-gray-50">
-      <div
-        class="w-full max-w-md sm:max-w-lg lg:max-w-[29rem] shadow-black/25 shadow-2xl p-6 sm:p-8 rounded-lg mt-10 sm:mt-16 lg:mt-0 bg-gray-50"
-      >
+      <BaseCard>
         <div class="flex justify-center mb-5">
           <div
             class="bg-green-100 p-4 rounded-full flex items-center justify-center"
           >
-            <UIcon name="i-heroicons-check" class="w-8 h-8 text-green-500" />
+            <UIcon name="i-heroicons-check" class="w-8 h-8 text-[#00A63E]" />
           </div>
         </div>
 
@@ -84,7 +82,7 @@
         >
           Enter Dashboard
         </button>
-      </div>
+      </BaseCard>
     </div>
 
     <div class="flex-1 hidden lg:block">
@@ -94,6 +92,7 @@
 </template>
 
 <script setup>
+import BaseCard from "../components/UI/BaseCard.vue";
 import { useUserStore } from "~/stores/UserStore";
 
 const UserStore = useUserStore();

@@ -80,7 +80,6 @@
       </div>
     </div>
 
-    <!-- Branches -->
     <div
       v-if="selectedRole"
       class="bg-[#FFFFFF] border border-gray-200 rounded-2xl mt-5 px-5 py-7 flex flex-col items-center w-[89%] sm:w-[90%] lg:w-[57rem] shadow-md shadow-black/20"
