@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full min-h-screen">
     <div class="flex-1 flex justify-center items-center bg-gray-50">
-      <BaseCard>
+      <BaseCard class="mx-7">
         <div class="flex justify-center mb-5">
           <div
             class="bg-green-100 p-3 rounded-full flex items-center justify-center"
