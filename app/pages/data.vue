@@ -4,9 +4,9 @@
       <BaseCard>
         <div class="flex justify-center mb-5">
           <div
-            class="bg-green-100 p-4 rounded-full flex items-center justify-center"
+            class="bg-green-100 p-3 rounded-full flex items-center justify-center"
           >
-            <UIcon name="i-heroicons-check" class="w-8 h-8 text-[#00A63E]" />
+            <UIcon name="i-heroicons-check" class="w-9 h-9 text-[#00A63E]" />
           </div>
         </div>
 

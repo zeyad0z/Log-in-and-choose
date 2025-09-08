@@ -55,7 +55,7 @@
         <UCard
           v-for="card in cards"
           :key="card.title"
-          class="bg-white/10 hover:bg-white/15 backdrop-blur-md transition-all duration-300 group"
+          class="bg-white/15 ring-1 ring-white/30 hover:bg-white/20 backdrop-blur-3xl transition-all duration-300 group"
         >
           <template #header>
             <div class="flex flex-col items-center text-center py-2">
