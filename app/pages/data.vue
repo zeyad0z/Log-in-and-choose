@@ -100,6 +100,8 @@ const UserStore = useUserStore();
 
 const goDashboard = () => {
   if (UserStore.user.role && UserStore.user.branch) {
+    UserStore.user.id = "";
+    UserStore.user.pass = "";
     navigateTo("/");
   }
 };
