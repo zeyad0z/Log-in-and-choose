@@ -135,10 +135,10 @@
     <button
       :disabled="!selectedRole || !selectedBranch"
       :class="[
-        'flex items-center gap-2 px-10 py-2 rounded-xl mt-7 mb-8 text-xl cursor-pointer font-semibold transition-all duration-200',
+        'flex items-center gap-2 px-10 py-2 rounded-xl mt-7 mb-8 text-xl font-semibold transition-all duration-200',
         !selectedRole || !selectedBranch
           ? 'bg-[#83AAFD] text-white cursor-not-allowed'
-          : 'bg-[#2460e2] hover:bg-[#1447E6] text-white',
+          : 'bg-[#2460e2] hover:bg-[#1447E6] text-white cursor-pointer',
       ]"
       @click="countinueToDashboard"
     >
