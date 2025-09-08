@@ -23,7 +23,10 @@
       </div>
     </div>
 
-    <div class="flex flex-col items-center text-center p-2 md:mt-30 mb-9">
+    <div
+      :class="[selectedRole ? 'md:mt-0' : 'md:mt-30']"
+      class="flex flex-col items-center text-center p-2 mb-9"
+    >
       <div
         class="w-[5rem] h-[5rem] flex bg-[#DBEAFE] rounded-full items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
       >
@@ -86,7 +89,7 @@
         Select Your Branch
       </h1>
       <div
-        class="flex flex-col sm:flex-row flex-wrap gap-5 justify-center w-[94%] md:w-[100%]"
+        class="flex flex-col sm:flex-row flex-wrap gap-5 justify-start w-[94%] md:w-[100%]"
       >
         <div
           v-for="branch in filteredBranches"

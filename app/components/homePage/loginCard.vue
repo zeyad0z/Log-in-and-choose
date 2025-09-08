@@ -3,7 +3,7 @@
     class="min-h-fit w-full flex justify-center items-center px-4 sm:px-6 lg:px-8"
   >
     <div
-      class="w-full max-w-md sm:max-w-lg lg:max-w-[28rem] shadow-black/25 shadow-2xl p-6 sm:p-8 rounded-lg mt-10 sm:mt-16 lg:mt-0 bg-gray-50"
+      class="w-full max-w-md sm:max-w-lg lg:max-w-[29rem] shadow-black/25 shadow-2xl p-6 sm:p-8 rounded-lg mt-10 sm:mt-16 lg:mt-0 bg-gray-50"
     >
       <div class="mb-8 sm:mb-12 text-center">
         <h1 class="text-2xl sm:text-3xl lg:text-3xl font-bold mb-3">

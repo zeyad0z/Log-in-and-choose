@@ -5,7 +5,7 @@ import SideSection from "~/components/homePage/sideSection.vue";
 
 <template>
   <div class="flex flex-col lg:flex-row min-h-screen">
-    <div class="flex-1 flex justify-center items-center p-4 sm:p-6 lg:p-10">
+    <div class="flex-1 flex justify-center items-center">
       <LoginCard />
     </div>
 
