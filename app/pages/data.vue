@@ -74,7 +74,7 @@
           @click="goDashboard"
           class="mb-6"
           :class="[
-            'w-full py-3 rounded-md font-medium transition-all duration-300',
+            'w-full py-3 rounded-md font-medium cursor-pointer transition-all duration-300',
             !UserStore.user.role || !UserStore.user.branch
               ? 'bg-gray-400 text-white cursor-not-allowed'
               : 'bg-[#1d58d6] text-white hover:bg-[#386ad7]',

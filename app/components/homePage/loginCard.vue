@@ -36,7 +36,7 @@
         <button
           type="submit"
           :disabled="loading"
-          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 rounded-lg mb-6 hover:bg-[#386ad7] transition duration-300 text-sm sm:text-base font-semibold disabled:opacity-70 disabled:cursor-not-allowed"
+          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 rounded-lg mb-6 hover:bg-[#386ad7] transition duration-300 text-sm sm:text-base font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
         >
           {{ loading ? "Signing In..." : "Sign In" }}
         </button>
