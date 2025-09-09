@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full min-h-screen">
-    <div class="flex-1 flex justify-center items-center bg-gray-50">
+    <div class="flex-[1.07] flex justify-center items-center bg-gray-50">
       <BaseCard class="mx-7">
         <div class="flex justify-center mb-5">
           <div
@@ -10,15 +10,15 @@
           </div>
         </div>
 
-        <h2 class="text-2xl font-bold text-center mb-1 text-black">
+        <h2 class="text-[1.6rem] font-bold text-center mb-1 text-black">
           Welcome Back!
         </h2>
-        <p class="text-gray-500 text-center mb-12 text-sm">
+        <p class="text-gray-400 font-medium text-center mb-12 text-sm">
           Ready to continue learning
         </p>
 
         <div
-          class="flex items-center gap-3 bg-gray-100 rounded-md p-4 mb-6 text-gray-600"
+          class="flex items-center gap-4 bg-gray-100 rounded-md p-4 mb-6 text-gray-600"
         >
           <div
             class="bg-[#DCE6F7] border-2 border-[#B7CCF4] w-[3rem] h-[3rem] rounded-full flex items-center justify-center"
@@ -39,17 +39,15 @@
           </div>
         </div>
 
-        <div
-          class="bg-gray-100 rounded-md px-3 py-3 mb-6 text-gray-600 space-y-2"
-        >
+        <div class="bg-gray-100 rounded-md p-4 mb-6 text-gray-600 space-y-2">
           <div class="flex items-center">
             <UIcon
               name="i-heroicons-book-open"
               class="w-4 h-4 mr-2 text-gray-500"
             />
-            <span class="text-gray-500">Position:</span>
+            <span class="text-gray-500 text-[0.93rem]">Position:</span>
             <div
-              class="ml-2 text-[#2563EB] text-xs font-semibold bg-[#DCE6F7] rounded-lg px-2 py-1"
+              class="ml-2 text-[#2563EB] text-xs font-semibold bg-[#DCE6F7] rounded-md px-2 py-0.5"
             >
               {{ UserStore.user?.role }}
             </div>
@@ -60,9 +58,9 @@
               name="i-heroicons-building-office"
               class="w-4 h-4 mr-2 text-gray-500"
             />
-            <span class="text-gray-500">Branch:</span>
+            <span class="text-gray-500 text-[0.93rem]">Branch:</span>
             <span
-              class="ml-2 text-[#2563EB] text-xs font-semibold bg-[#F1F5F9] border-2 border-[#DCE6F7] rounded-lg px-2 py-1"
+              class="ml-2 text-[#2563EB] text-xs font-semibold bg-[#F1F5F9] border-2 border-[#DCE6F7] rounded-md px-2 py-0.5"
             >
               {{ UserStore.user?.branch }}
             </span>
@@ -70,15 +68,8 @@
         </div>
 
         <button
-          :disabled="!UserStore.user.role || !UserStore.user.branch"
           @click="goDashboard"
-          class="mb-6"
-          :class="[
-            'w-full py-3 rounded-md font-medium cursor-pointer transition-all duration-300',
-            !UserStore.user.role || !UserStore.user.branch
-              ? 'bg-gray-400 text-white cursor-not-allowed'
-              : 'bg-[#1d58d6] text-white hover:bg-[#386ad7]',
-          ]"
+          class="mb-6 w-full py-3 rounded-md font-medium cursor-pointer transition-all duration-300 bg-[#1d58d6] text-white hover:bg-[#386ad7]"
         >
           Enter Dashboard
         </button>
@@ -98,10 +89,8 @@ import { useUserStore } from "~/stores/UserStore";
 const UserStore = useUserStore();
 
 const goDashboard = () => {
-  if (UserStore.user.role && UserStore.user.branch) {
-    UserStore.user.id = "";
-    UserStore.user.pass = "";
-    navigateTo("/");
-  }
+  UserStore.user.id = "";
+  UserStore.user.pass = "";
+  navigateTo("/");
 };
 </script>

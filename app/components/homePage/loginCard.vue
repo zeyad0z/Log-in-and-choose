@@ -3,11 +3,11 @@
     class="min-h-fit w-full flex justify-center items-center px-4 sm:px-6 lg:px-8"
   >
     <BaseCard class="mx-5">
-      <div class="mb-8 sm:mb-12 text-center">
-        <h1 class="text-2xl sm:text-3xl lg:text-3xl font-bold mb-3">
+      <div class="mb-8 sm:mb-10 pb-4 text-center">
+        <h1 class="text-2xl text-black/85 sm:text-[1.95rem] font-bold mb-3">
           Welcome to Learning
         </h1>
-        <p class="text-gray-500 text-sm sm:text-base">
+        <p class="text-gray-500 text-sm sm:text-[1.02rem] mt-3">
           Access your educational dashboard
         </p>
       </div>

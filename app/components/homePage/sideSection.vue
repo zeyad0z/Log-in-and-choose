@@ -22,18 +22,20 @@
 
     <div class="relative z-10 px-4 sm:px-6 lg:px-20 py-8 sm:py-10">
       <div class="text-center mb-10 sm:mb-12">
-        <div class="flex justify-center mb-5 mt-5 sm:mt-2 xl:mt-16">
+        <div class="flex justify-center mb-4 mt-5 sm:mt-2 xl:mt-17">
           <div
             class="w-20 h-20 sm:w-24 sm:h-24 lg:w-[6rem] lg:h-[6rem] bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center"
           >
             <UIcon
               name="i-heroicons-building-office"
-              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-[4rem] lg:h-[4rem] text-white"
+              class="w-12 h-12 sm:w-14 sm:h-14 lg:w-[3.5rem] lg:h-[3.5rem] text-white"
             />
           </div>
         </div>
 
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
+        <h1
+          class="text-2xl sm:text-3xl lg:text-[2.35rem] font-bold text-white mb-3"
+        >
           Your School Name
         </h1>
         <h2
@@ -42,7 +44,7 @@
           Excellence in Education
         </h2>
         <p
-          class="text-sm sm:text-base lg:text-lg text-blue-100/90 max-w-md sm:max-w-lg lg:max-w-lg mx-auto font-medium"
+          class="text-sm sm:text-base lg:text-[1.17rem] text-blue-100/90 max-w-md sm:max-w-lg lg:max-w-lg mx-auto font-medium leading-relaxed"
         >
           Empowering minds and shaping futures through innovative learning
           experiences
@@ -50,26 +52,31 @@
       </div>
 
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:gap-6 gap-7 max-w-lg sm:max-w-2xl lg:max-w-[40rem] mx-auto mb-6"
+        class="grid grid-cols-2 md:gap-x-15 md:gap-y-6.5 max-w-lg sm:max-w-2xl lg:max-w-[40rem] mx-12 mb-6"
       >
         <UCard
           v-for="card in cards"
           :key="card.title"
-          class="bg-white/15 ring-1 ring-white/30 hover:bg-white/20 backdrop-blur-3xl transition-all duration-300 group"
+          class="bg-white/15 rounded-2xl lg:w-[12.5rem] xl:w-[20.2rem] ring-1 ring-white/30 hover:bg-white/20 backdrop-blur-3xl transition-all duration-300 group"
         >
           <template #header>
-            <div class="flex flex-col items-center text-center py-2">
+            <div class="flex flex-col items-center text-center py-1">
               <div
                 class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center mb-2 sm:mb-3"
               >
                 <UIcon :name="card.icon" class="w-12 h-12 text-white" />
               </div>
               <h3
-                class="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2"
+                class="text-base sm:text-[1.2rem] font-semibold text-white mb-1 sm:mb-2"
               >
                 {{ card.title }}
               </h3>
-              <p class="text-blue-100/80 text-xs sm:text-sm font-medium">
+              <p
+                :class="[
+                  card.title === 'knowledge' || 'comunnity' ? 'mb-2' : '',
+                ]"
+                class="text-blue-100/80 text-xs sm:text-[0.9rem] font-medium"
+              >
                 {{ card.text }}
               </p>
             </div>
