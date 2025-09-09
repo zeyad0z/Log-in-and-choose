@@ -17,21 +17,42 @@
         <input
           type="text"
           name="id"
-          placeholder="Enter your ID"
-          v-model="UserStore.user.id"
-          required
-          class="w-full px-3 sm:px-4 py-2 sm:py-3 mb-4 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
+          :placeholder="
+            v$.$error && v$.id.$error ? 'ID is required' : 'Enter your ID'
+          "
+          v-model="state.id"
+          :class="[
+            'w-full px-3 sm:px-4 py-2 sm:py-3 mb-4 mt-1 border bg-white rounded-lg focus:outline-none',
+            v$.$error && v$.id.$error
+              ? 'border-2 border-red-400 placeholder-red-400'
+              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3]',
+          ]"
         />
 
         <label for="pass" class="text-sm font-medium">Password</label>
         <input
           type="password"
           name="pass"
-          placeholder="Enter your Password"
-          v-model="UserStore.user.pass"
-          required
-          class="w-full px-3 sm:px-4 py-2 sm:py-3 mb-5 sm:mb-6 mt-1 border border-gray-200 bg-white rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8FAEF3]"
+          :placeholder="
+            v$.$error && v$.pass.required.$invalid
+              ? 'Password is required'
+              : 'Enter your Password'
+          "
+          v-model="state.pass"
+          :class="[
+            'w-full px-3 sm:px-4 py-2 sm:py-3 mt-1 border bg-white rounded-lg focus:outline-none',
+            v$.$error && v$.pass.$error
+              ? 'border-2 border-red-400 placeholder-red-400'
+              : 'border-gray-200 focus:ring-2 focus:ring-[#8FAEF3]',
+            v$.$error && v$.pass.minLength.$invalid ? 'mb-1' : 'mb-6',
+          ]"
         />
+        <p
+          v-if="v$.$error && v$.pass.minLength.$invalid"
+          class="text-red-500 text-sm mb-4"
+        >
+          Password must be at least 6 characters
+        </p>
 
         <button
           type="submit"
@@ -47,16 +68,38 @@
 
 <script setup>
 import BaseCard from "../UI/BaseCard.vue";
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import { useUserStore } from "~/stores/UserStore";
+import useVuelidate from "@vuelidate/core";
+import { required, minLength } from "@vuelidate/validators";
 
 const UserStore = useUserStore();
 const loading = ref(false);
 
+const state = reactive({
+  id: "",
+  pass: "",
+});
+const rules = {
+  id: { required },
+  pass: { required, minLength: minLength(6) },
+};
+const v$ = useVuelidate(rules, state);
+const submitForm = () => {
+  v$.value.$validate();
+  if (!v$.value.$error) {
+    UserStore.user.id = state.id;
+    console.log("✅ Valid form:", state);
+    navigateTo("/options");
+  } else {
+    console.log("❌ Invalid form");
+  }
+};
+
 const logIn = () => {
   loading.value = true;
   setTimeout(() => {
-    navigateTo("/options");
+    submitForm();
     loading.value = false;
   }, 1000);
 };
