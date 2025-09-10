@@ -31,7 +31,7 @@
 
           <div class="flex flex-col">
             <span class="text-lg font-semibold text-gray-800">
-              {{ UserStore.user?.id }}
+              {{ UserStore.user?.ename }}
             </span>
             <span class="text-sm text-gray-500"
               >ID: {{ UserStore.user?.id }}</span

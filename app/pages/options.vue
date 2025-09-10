@@ -17,7 +17,7 @@
       </button>
       <div class="flex flex-col items-end">
         <p class="text-[0.9rem] font-base text-gray-700">
-          Welcome, {{ UserStore.user.id }}
+          Welcome, {{ UserStore.user.ename }}
         </p>
         <p class="text-[0.79rem] font-base text-gray-500">
           ID: {{ UserStore.user.id }}

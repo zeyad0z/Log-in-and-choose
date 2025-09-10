@@ -4,6 +4,8 @@ export const useUserStore = defineStore("UserStore", {
   state: () => ({
     user: {
       id: null,
+      ename: null,
+      aname: null,
       role: null,
       branch: null,
     },
