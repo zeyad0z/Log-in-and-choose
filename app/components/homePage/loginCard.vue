@@ -3,11 +3,7 @@
     class="min-h-fit w-full flex justify-center items-center px-4 sm:px-6 lg:px-8"
   >
     <BaseCard class="mx-5">
-<<<<<<< HEAD
       <div class="mb-8 pb-4 text-center">
-=======
-      <div class="mb-8 sm:mb-10 pb-4 text-center">
->>>>>>> a0ea4f5415950b365686879b31f18c768cfb51c4
         <h1 class="text-2xl text-black/85 sm:text-[1.95rem] font-bold mb-3">
           Welcome to Learning
         </h1>
@@ -124,12 +120,7 @@
           :class="[
             v$.pass.$error && v$.pass.minLength.$invalid ? 'mt-6' : 'mt-6',
           ]"
-<<<<<<< HEAD
-          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 mt-6 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm sm:text-[0.92rem] font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
-=======
-          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 mt-6 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm sm:text-base font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed"
->>>>>>> a0ea4f5415950b365686879b31f18c768cfb51c4
-        >
+          class="w-full bg-[#1d58d6] text-white py-3 sm:py-3 mt-6 rounded-lg hover:bg-[#386ad7] transition duration-300 text-sm sm:text-[0.92rem] font-semibold disabled:opacity-70 cursor-pointer disabled:cursor-not-allowed">
           {{ loading ? "Signing In..." : "Sign In" }}
         </button>
       </form>
@@ -195,6 +186,6 @@ const logIn = () => {
   setTimeout(() => {
     submitForm();
     loading.value = false;
-  }, 1000);
+  }, 500);
 };
 </script>

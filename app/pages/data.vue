@@ -69,8 +69,7 @@
 
         <button
           @click="goDashboard"
-          class="mb-6 w-full py-3 rounded-md font-medium cursor-pointer transition-all duration-300 bg-[#1d58d6] text-[0.92rem] text-white hover:bg-[#386ad7]">
-        >
+          class=" mb-6 w-full py-3 rounded-md font-medium cursor-pointer transition-all duration-300 bg-[#1d58d6] text-[0.92rem] text-white hover:bg-[#386ad7] ">
           Enter Dashboard
         </button>
       </BaseCard>
