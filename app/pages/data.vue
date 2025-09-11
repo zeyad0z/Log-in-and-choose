@@ -69,7 +69,11 @@
 
         <button
           @click="goDashboard"
+<<<<<<< HEAD
           class="mb-6 w-full py-3 rounded-md font-medium cursor-pointer transition-all duration-300 bg-[#1d58d6] text-[0.92rem] text-white hover:bg-[#386ad7]"
+=======
+          class="mb-6 w-full py-3 rounded-md font-medium cursor-pointer transition-all duration-300 bg-[#1d58d6] text-white hover:bg-[#386ad7]"
+>>>>>>> a0ea4f5415950b365686879b31f18c768cfb51c4
         >
           Enter Dashboard
         </button>
