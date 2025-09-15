@@ -45,22 +45,25 @@
       </p>
     </div>
 
-    <div v-if="selectedRole" class="flex md:hidden" >
+    <Transition name="fade">
+    <div v-if="selectedRole" class="flex md:hidden " >
       <button
           @click="backToRoles"
-        class="bg-[#2460e2] hover:bg-[#1447E6] text-white flex items-center px-4 py-1 rounded-xl text-[1.2rem] font-semibold transition-all duration-200 cursor-pointer mb-4"
+        class="bg-[#2460e2] hover:bg-[#1447E6] text-white flex items-center px-4 py-1 rounded-xl text-[1.2rem] font-semibold transition-all duration-200 cursor-pointer"
       >
         <UIcon
           name="i-lucide-arrow-left"
-          class="w-[1rem] h-[1rem]"
+          class="w-[1.5rem] h-[1.5rem] me-1"
         />
-        Back to Roles
+        Change Roles
       </button>
     </div>
+    </Transition>
 
+    <Transition name="fade">
     <div
       :class="[selectedRole ? 'hidden md:flex' : 'flex']"
-      class="flex flex-col sm:flex-row flex-wrap gap-6 justify-center my-2 px-3"
+      class="flex flex-col sm:flex-row flex-wrap gap-6 justify-center my-2 px-3 bbbb"
     >
       <div v-for="role in roles" :key="role.name">
         <button
@@ -95,7 +98,10 @@
         </button>
       </div>
     </div>
+    </Transition>
 
+    
+    <Transition name="fade">
     <div
       v-if="selectedRole"
       class="border border-gray-200 bg-white rounded-2xl mt-5 mb-1 px-5 py-7 flex flex-col items-center w-[89%] sm:w-[90%] lg:w-[56rem] shadow-md shadow-black/20"
@@ -147,6 +153,7 @@
         </div>
       </div>
     </div>
+  </Transition>
 
     <button
         :disabled="!selectedRole || !selectedBranch"
@@ -226,3 +233,18 @@ function backToRoles() {
   selectedBranch.value = null;
 }
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+</style>
