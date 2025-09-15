@@ -182,7 +182,6 @@ const submitForm = () => {
 
 const logIn = () => {
   loading.value = true;
-  console.log(state.ename);
   setTimeout(() => {
     submitForm();
     loading.value = false;
