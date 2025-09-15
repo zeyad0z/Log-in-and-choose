@@ -45,7 +45,21 @@
       </p>
     </div>
 
+    <div v-if="selectedRole" class="flex md:hidden" >
+      <button
+          @click="backToRoles"
+        class="bg-[#2460e2] hover:bg-[#1447E6] text-white flex items-center px-4 py-1 rounded-xl text-[1.2rem] font-semibold transition-all duration-200 cursor-pointer mb-4"
+      >
+        <UIcon
+          name="i-lucide-arrow-left"
+          class="w-[1rem] h-[1rem]"
+        />
+        Back to Roles
+      </button>
+    </div>
+
     <div
+      :class="[selectedRole ? 'hidden md:flex' : 'flex']"
       class="flex flex-col sm:flex-row flex-wrap gap-6 justify-center my-2 px-3"
     >
       <div v-for="role in roles" :key="role.name">
@@ -100,7 +114,7 @@
           <button
             @click="selectBranch(branch.name)"
             :class="[
-              'flex items-center justify-between  border-2 rounded-lg px-6 py-6 w-full sm:w-[16.56rem] mb-1 h-fit relative cursor-pointer hover:border-2 hover:border-blue-300',
+              'flex items-center justify-between border-2 rounded-lg px-6 py-6 w-full sm:w-[16.56rem] mb-1 h-fit relative cursor-pointer hover:border-2 hover:border-blue-300',
               selectedBranch === branch.name
                 ? 'bg-blue-50 border-blue-500 border-2'
                 : 'bg-white border-gray-200',
@@ -135,14 +149,14 @@
     </div>
 
     <button
-      :disabled="!selectedRole || !selectedBranch"
-      :class="[
-        'flex items-center gap-2 px-12 py-1.5 rounded-xl mt-6 mb-8 text-[1.2rem] font-semibold transition-all duration-200',
-        !selectedRole || !selectedBranch
-          ? 'bg-[#83AAFD] text-white cursor-not-allowed'
-          : 'bg-[#2460e2] hover:bg-[#1447E6] text-white cursor-pointer',
-      ]"
-      @click="countinueToDashboard"
+        :disabled="!selectedRole || !selectedBranch"
+        :class="[
+          'flex items-center gap-2 px-12 py-1.5 rounded-xl mt-6 mb-8 text-[1.2rem] font-semibold transition-all duration-200',
+          !selectedRole || !selectedBranch
+            ? 'bg-[#83AAFD] text-white cursor-not-allowed'
+            : 'bg-[#2460e2] hover:bg-[#1447E6] text-white cursor-pointer',
+        ]"
+        @click="continueToDashboard"
     >
       Continue to Dashboard
     </button>
@@ -171,12 +185,12 @@ const roles = [
   { name: "Teacher", branches: "2 branches", icon: "i-heroicons-academic-cap" },
   {
     name: "Student Affairs",
-    branches: "1 branche",
+      branches: "1 branch",
     icon: "i-heroicons-academic-cap",
   },
 ];
 
-const countinueToDashboard = () => {
+const continueToDashboard = () => {
   UserStore.user.role = selectedRole.value;
   UserStore.user.branch = selectedBranch.value;
   navigateTo("/data");
@@ -205,5 +219,10 @@ function selectRole(role) {
 
 function selectBranch(branch) {
   selectedBranch.value = branch;
+}
+
+function backToRoles() {
+  selectedRole.value = null;
+  selectedBranch.value = null;
 }
 </script>
